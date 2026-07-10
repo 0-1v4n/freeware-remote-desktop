@@ -1,0 +1,53 @@
+<Window x:Class="RemoteDesktopClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Remote Desktop Client" Height="600" Width="900"
+        WindowStartupLocation="CenterScreen"
+        Background="#1e1e1e">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Connection Panel -->
+        <StackPanel Grid.Row="0" Orientation="Vertical" Background="#2d2d2d" Padding="15" Spacing="10">
+            <TextBlock Text="Remote Desktop Connection" Foreground="White" FontSize="14" FontWeight="Bold"/>
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" Text="Server IP:" Foreground="White" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <TextBox x:Name="ServerIPTextBox" Grid.Column="1" Text="localhost" Background="#3e3e3e" Foreground="White" Padding="8" VerticalAlignment="Center"/>
+
+                <TextBlock Grid.Column="2" Text="Port:" Foreground="White" VerticalAlignment="Center" Margin="15,0,10,0"/>
+                <TextBox x:Name="PortTextBox" Grid.Column="3" Text="5555" Background="#3e3e3e" Foreground="White" Padding="8" VerticalAlignment="Center"/>
+
+                <TextBlock Grid.Column="4" Text="Password:" Foreground="White" VerticalAlignment="Center" Margin="15,0,10,0"/>
+                <PasswordBox x:Name="PasswordBox" Grid.Column="5" Background="#3e3e3e" Foreground="White" Padding="8" VerticalAlignment="Center"/>
+
+                <Button Grid.Column="6" x:Name="ConnectButton" Content="Connect" Click="ConnectButton_Click" 
+                        Background="#0078d4" Foreground="White" Padding="20,8" Margin="15,0,0,0" Cursor="Hand"/>
+            </Grid>
+
+            <TextBlock x:Name="StatusText" Text="Status: Disconnected" Foreground="#ffcc00" FontSize="12"/>
+        </StackPanel>
+
+        <!-- Display Panel -->
+        <Border Grid.Row="1" Background="Black" Padding="5">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <Image x:Name="ScreenImage" Stretch="Uniform" MouseMove="ScreenImage_MouseMove" 
+                       MouseDown="ScreenImage_MouseDown" MouseUp="ScreenImage_MouseUp" 
+                       MouseWheel="ScreenImage_MouseWheel" KeyDown="Window_KeyDown" KeyUp="Window_KeyUp"/>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</Window>
