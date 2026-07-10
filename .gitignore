@@ -1,0 +1,36 @@
+# Binaries, caches and logs
+bin/
+obj/
+*.log
+*.tmp
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.sln.docstates
+
+# ReSharper
+.idea/
+*.sln.iml
+
+# Test Results
+TestResults/
+*.trx
+
+# NuGet
+.nuget/
+packages/
+*.nupkg
+*.symbols.nupkg
+
+# Local environment
+.env
+local.settings.json
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Build output
+publish/
